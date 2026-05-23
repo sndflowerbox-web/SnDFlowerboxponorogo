@@ -1,221 +1,100 @@
-const ADMIN_PHONE = "6285135666976";
+const ADMIN = "6285135666976";
 
-/* AMBIL DATA FORM */
-
-function getData() {
-
-    const warnaBunga = [
-        ...document.querySelectorAll('.color-option input:checked')
-    ]
-    .map(el => el.value)
-    .join(', ');
-
-    return {
-
-        nama: document.getElementById('nama').value,
-
-        instagram: document.getElementById('instagram').value,
-
-        ucapan: document.getElementById('ucapan').value,
-
-        jenis: document.querySelector('input[name="jenis"]:checked')?.value || '',
-
-        warna: document.getElementById('warna').value,
-
-        selendang: document.querySelector('input[name="selendang"]:checked')?.value || '',
-
-        warnaBunga: warnaBunga,
-
-        alamat: document.getElementById('alamat').value,
-
-        whatsapp: document.getElementById('whatsapp').value
-
-    };
-
+function getValue(id){
+    return document.getElementById(id).value;
 }
 
-/* RESET ERROR */
+function getChecked(name){
+    const el = document.querySelector(`input[name="${name}"]:checked`);
+    return el ? el.value : "-";
+}
 
-function resetError() {
+function getColors(){
 
-    document.querySelectorAll('input, textarea').forEach(el => {
+    const checked = document.querySelectorAll('.checkbox-grid input:checked');
 
-        el.classList.remove('error');
+    let arr = [];
 
+    checked.forEach((item)=>{
+        arr.push(item.value);
     });
 
-}
-
-/* VALIDASI */
-
-function validateForm() {
-
-    resetError();
-
-    const data = getData();
-
-    let valid = true;
-
-    if (!data.nama) {
-
-        document.getElementById('nama').classList.add('error');
-
-        valid = false;
-
-    }
-
-    if (!data.ucapan) {
-
-        document.getElementById('ucapan').classList.add('error');
-
-        valid = false;
-
-    }
-
-    if (!data.jenis) {
-
-        alert('Pilih jenis papan bunga');
-
-        valid = false;
-
-    }
-
-    if (!data.warna) {
-
-        document.getElementById('warna').classList.add('error');
-
-        valid = false;
-
-    }
-
-    if (!data.alamat) {
-
-        document.getElementById('alamat').classList.add('error');
-
-        valid = false;
-
-    }
-
-    if (!data.whatsapp) {
-
-        document.getElementById('whatsapp').classList.add('error');
-
-        valid = false;
-
-    }
-
-    if (!valid) {
-
-        alert("Lengkapi data terlebih dahulu");
-
-        return false;
-
-    }
-
-    return true;
+    return arr.join(", ");
 
 }
 
-/* PREVIEW */
+function createMessage(){
 
-function previewPesanan() {
+    return `
+Halo Admin SnDflowerboxponorogo
 
-    if (!validateForm()) return;
+Nama : ${getValue('nama')}
 
-    const data = getData();
+Instagram : ${getValue('instagram')}
 
-    const html = `
+Ucapan :
+${getValue('ucapan')}
 
-    <div class="preview-item">
-        <b>Nama:</b><br>${data.nama}
-    </div>
+Jenis :
+${getChecked('jenis')}
 
-    <div class="preview-item">
-        <b>Instagram:</b><br>${data.instagram}
-    </div>
+Warna Tulisan :
+${getValue('warna')}
 
-    <div class="preview-item">
-        <b>Ucapan:</b><br>${data.ucapan}
-    </div>
+Selendang :
+${getChecked('selendang')}
 
-    <div class="preview-item">
-        <b>Jenis:</b><br>${data.jenis}
-    </div>
+Warna Bunga :
+${getColors()}
 
-    <div class="preview-item">
-        <b>Warna Tulisan:</b><br>${data.warna}
-    </div>
+Tanggal :
+${getValue('tanggal')}
 
-    <div class="preview-item">
-        <b>Selendang:</b><br>${data.selendang}
-    </div>
+Waktu :
+${getValue('waktu')}
 
-    <div class="preview-item">
-        <b>Warna Bunga:</b><br>${data.warnaBunga}
-    </div>
+Alamat :
+${getValue('alamat')}
 
-    <div class="preview-item">
-        <b>Alamat:</b><br>${data.alamat}
-    </div>
+WhatsApp :
+${getValue('whatsapp')}
 
-    <div class="preview-item">
-        <b>WhatsApp:</b><br>${data.whatsapp}
-    </div>
+Emoji :
+${getValue('emoji')}
+`;
 
+}
+
+function previewPesanan(){
+
+    const message = createMessage();
+
+    document.getElementById('previewContent').innerHTML = `
+        <div class="preview-box">
+            ${message.replace(/\n/g,"<br>")}
+        </div>
     `;
-
-    document.getElementById('previewContent').innerHTML = html;
 
     document.getElementById('modal').classList.add('active');
 
 }
 
-/* TUTUP MODAL */
-
-function closeModal() {
+function closeModal(){
 
     document.getElementById('modal').classList.remove('active');
 
 }
 
-/* TOMBOL KIRIM WHATSAPP */
+function sendWhatsApp(){
 
-function sendWhatsApp() {
+    const text = encodeURIComponent(createMessage());
 
-    previewPesanan();
+    window.open(`https://wa.me/${ADMIN}?text=${text}`,'_blank');
 
 }
 
-/* KIRIM SEKARANG */
+function sendNow(){
 
-function sendNow() {
-
-    const data = getData();
-
-    let message = `Halo Admin SnDflowerboxponorogo,%0A%0A`;
-
-    message += `Nama : ${data.nama}%0A`;
-    message += `Instagram : ${data.instagram}%0A`;
-    message += `Ucapan : ${data.ucapan}%0A`;
-    message += `Jenis : ${data.jenis}%0A`;
-    message += `Warna Tulisan : ${data.warna}%0A`;
-    message += `Selendang : ${data.selendang}%0A`;
-    message += `Warna Bunga : ${data.warnaBunga}%0A`;
-    message += `Alamat : ${data.alamat}%0A`;
-    message += `WhatsApp : ${data.whatsapp}`;
-
-    const url = `https://wa.me/${ADMIN_PHONE}?text=${message}`;
-
-    document.getElementById('successAlert').classList.add('show');
-
-    setTimeout(() => {
-
-        window.open(url, '_blank');
-
-        document.getElementById('successAlert').classList.remove('show');
-
-        closeModal();
-
-    }, 1000);
+    sendWhatsApp();
 
 }
