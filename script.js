@@ -94,36 +94,37 @@ function buildMessage(){
 
     return `Halo Admin SnDflowerboxponorogo
 
-📌 Nama : ${getValue('nama')}
-📷 Instagram : ${getValue('instagram')}
+Nama : ${getValue('nama')}
+Instagram : ${getValue('instagram')}
 
-💌 Ucapan :
+Ucapan :
 ${getValue('ucapan')}
 
-🎁 Jenis :
+Jenis :
 ${getRadio('jenis')}
 
-🎨 Warna Tulisan :
+Warna Tulisan :
 ${getValue('warna')}
 
-🧣 Selendang :
+Selendang :
 ${getRadio('selendang')}
 
-🌸 Warna Bunga :
+Warna Bunga :
 ${getColors()}
 
-📅 Tanggal :
+Tanggal :
 ${getValue('tanggal')}
 
-⏰ Waktu :
+Waktu :
 ${getValue('waktu')}
 
-📍 Alamat :
+Alamat :
 ${getValue('alamat')}
 
-📱 WhatsApp :
+WhatsApp :
 ${getValue('whatsapp')}
 
+Emoji :
 ${getValue('emoji')}
 `;
 
