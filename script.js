@@ -95,6 +95,7 @@ function buildMessage(){
     return `Halo Admin SnDflowerboxponorogo
 
 Nama : ${getValue('nama')}
+
 Instagram : ${getValue('instagram')}
 
 Ucapan :
@@ -124,12 +125,10 @@ ${getValue('alamat')}
 WhatsApp :
 ${getValue('whatsapp')}
 
-Emoji :
 ${getValue('emoji')}
 `;
 
 }
-
 /* =========================
    PREVIEW
 ========================= */
