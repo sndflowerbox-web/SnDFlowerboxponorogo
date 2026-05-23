@@ -1,83 +1,95 @@
 const ADMIN = "6285135666976";
 
-function getValue(id){
-    return document.getElementById(id).value;
+/* AMBIL RADIO */
+
+function getRadio(name){
+
+    const radio = document.querySelector(`input[name="${name}"]:checked`);
+
+    return radio ? radio.value : "-";
+
 }
 
-function getChecked(name){
-    const el = document.querySelector(`input[name="${name}"]:checked`);
-    return el ? el.value : "-";
-}
+/* AMBIL CHECKBOX */
 
-function getColors(){
+function getCheckboxValues(){
 
     const checked = document.querySelectorAll('.checkbox-grid input:checked');
 
-    let arr = [];
+    let values = [];
 
-    checked.forEach((item)=>{
-        arr.push(item.value);
+    checked.forEach(item => {
+        values.push(item.value);
     });
 
-    return arr.join(", ");
+    return values.join(", ");
 
 }
 
+/* BUAT PESAN */
+
 function createMessage(){
 
-    return `
-Halo Admin SnDflowerboxponorogo
+    return `Halo Admin SnDflowerboxponorogo
 
-Nama : ${getValue('nama')}
+Nama : ${document.getElementById('nama').value}
 
-Instagram : ${getValue('instagram')}
+Instagram : ${document.getElementById('instagram').value}
 
 Ucapan :
-${getValue('ucapan')}
+${document.getElementById('ucapan').value}
 
 Jenis :
-${getChecked('jenis')}
+${getRadio('jenis')}
 
 Warna Tulisan :
-${getValue('warna')}
+${document.getElementById('warna').value}
 
 Selendang :
-${getChecked('selendang')}
+${getRadio('selendang')}
 
 Warna Bunga :
-${getColors()}
+${getCheckboxValues()}
 
 Tanggal :
-${getValue('tanggal')}
+${document.getElementById('tanggal').value}
 
 Waktu :
-${getValue('waktu')}
+${document.getElementById('waktu').value}
 
 Alamat :
-${getValue('alamat')}
+${document.getElementById('alamat').value}
 
 WhatsApp :
-${getValue('whatsapp')}
+${document.getElementById('whatsapp').value}
 
 Emoji :
-${getValue('emoji')}
+${document.getElementById('emoji').value}
 `;
 
 }
 
+/* PREVIEW */
+
 function previewPesanan(){
 
-    const message = createMessage();
+    const text = createMessage();
 
     document.getElementById('previewContent').innerHTML = `
+
         <div class="preview-box">
-            ${message.replace(/\n/g,"<br>")}
+
+            ${text.replace(/\n/g,"<br>")}
+
         </div>
+
     `;
 
     document.getElementById('modal').classList.add('active');
 
 }
+
+/* CLOSE MODAL */
 
 function closeModal(){
 
@@ -85,13 +97,19 @@ function closeModal(){
 
 }
 
+/* KIRIM WA */
+
 function sendWhatsApp(){
 
     const text = encodeURIComponent(createMessage());
 
-    window.open(`https://wa.me/${ADMIN}?text=${text}`,'_blank');
+    const url = `https://wa.me/${ADMIN}?text=${text}`;
+
+    window.open(url, '_blank');
 
 }
+
+/* KIRIM DARI MODAL */
 
 function sendNow(){
 
