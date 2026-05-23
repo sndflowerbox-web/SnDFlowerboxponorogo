@@ -7,10 +7,9 @@
 body{
     font-family:Arial,sans-serif;
     background:#f3f3f3;
-    padding:14px;
+    padding:15px;
     display:flex;
     justify-content:center;
-    color:#222;
 }
 
 .container{
@@ -38,9 +37,9 @@ body{
 }
 
 .header h1{
-    font-size:32px;
-    font-weight:700;
+    font-size:30px;
     margin-bottom:6px;
+    color:#222;
 }
 
 .header p{
@@ -56,9 +55,10 @@ body{
 
 label{
     display:block;
+    margin-bottom:10px;
     font-size:16px;
     font-weight:700;
-    margin-bottom:10px;
+    color:#222;
 }
 
 .required::after{
@@ -75,12 +75,6 @@ textarea{
     font-size:16px;
     outline:none;
     background:#fff;
-    transition:0.2s;
-}
-
-input:focus,
-textarea:focus{
-    border-color:#25d366;
 }
 
 textarea{
@@ -88,18 +82,18 @@ textarea{
     resize:none;
 }
 
-/* UCAPAN BOX */
+/* UCAPAN */
 
 .ucapan-box{
     background:#f7f7f7;
     border-left:4px solid #25d366;
     border-radius:16px;
     padding:16px;
-    line-height:1.8;
     margin-bottom:14px;
+    line-height:1.7;
 }
 
-/* RADIO GROUP */
+/* RADIO */
 
 .radio-group{
     display:flex;
@@ -111,20 +105,19 @@ textarea{
     display:flex;
     align-items:center;
     gap:12px;
-    font-size:15px;
     font-weight:600;
 }
 
 .radio-item input{
-    width:20px;
-    height:20px;
+    width:18px;
+    height:18px;
 }
 
 /* INLINE */
 
 .inline-group{
     display:flex;
-    gap:24px;
+    gap:22px;
     flex-wrap:wrap;
 }
 
@@ -152,9 +145,9 @@ textarea{
     display:flex;
     align-items:center;
     gap:8px;
+    margin:0;
     font-size:15px;
     font-weight:600;
-    margin:0;
 }
 
 .checkbox-grid input{
@@ -178,18 +171,17 @@ textarea{
 .button-group{
     display:flex;
     gap:14px;
-    margin-top:26px;
+    margin-top:24px;
 }
 
 button{
     flex:1;
+    padding:16px;
     border:none;
     border-radius:18px;
-    padding:17px;
     font-size:18px;
     font-weight:700;
     cursor:pointer;
-    transition:0.2s;
 }
 
 .preview-btn{
@@ -200,10 +192,6 @@ button{
 .whatsapp-btn{
     background:#25d366;
     color:#fff;
-}
-
-button:hover{
-    transform:scale(0.98);
 }
 
 /* MODAL */
@@ -233,18 +221,13 @@ button:hover{
     padding:22px;
 }
 
-.modal-content h2{
-    margin-bottom:16px;
-    font-size:28px;
-}
-
 .preview-box{
     background:#f7f7f7;
     border-radius:16px;
     padding:16px;
     line-height:1.8;
-    white-space:pre-line;
     margin-bottom:16px;
+    white-space:pre-line;
 }
 
 /* RESPONSIVE */
@@ -256,6 +239,7 @@ button:hover{
     }
 
     .container{
+        width:100%;
         max-width:100%;
         padding:20px;
         border-radius:20px;
@@ -299,7 +283,6 @@ button:hover{
 
     button{
         font-size:16px;
-        padding:15px;
     }
 
 }
