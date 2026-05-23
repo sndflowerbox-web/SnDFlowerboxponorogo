@@ -2,9 +2,11 @@ const ADMIN_PHONE = "6285135666976";
 
 /* AMBIL DATA FORM */
 
-function getData(){
+function getData() {
 
-    const warnaBunga = [...document.querySelectorAll('.color-option input:checked')]
+    const warnaBunga = [
+        ...document.querySelectorAll('.color-option input:checked')
+    ]
     .map(el => el.value)
     .join(', ');
 
@@ -34,9 +36,9 @@ function getData(){
 
 /* RESET ERROR */
 
-function resetError(){
+function resetError() {
 
-    document.querySelectorAll('input, textarea').forEach(el=>{
+    document.querySelectorAll('input, textarea').forEach(el => {
 
         el.classList.remove('error');
 
@@ -44,9 +46,9 @@ function resetError(){
 
 }
 
-/* VALIDASI FORM */
+/* VALIDASI */
 
-function validateForm(){
+function validateForm() {
 
     resetError();
 
@@ -54,7 +56,7 @@ function validateForm(){
 
     let valid = true;
 
-    if(!data.nama){
+    if (!data.nama) {
 
         document.getElementById('nama').classList.add('error');
 
@@ -62,7 +64,7 @@ function validateForm(){
 
     }
 
-    if(!data.ucapan){
+    if (!data.ucapan) {
 
         document.getElementById('ucapan').classList.add('error');
 
@@ -70,7 +72,7 @@ function validateForm(){
 
     }
 
-    if(!data.jenis){
+    if (!data.jenis) {
 
         alert('Pilih jenis papan bunga');
 
@@ -78,7 +80,7 @@ function validateForm(){
 
     }
 
-    if(!data.warna){
+    if (!data.warna) {
 
         document.getElementById('warna').classList.add('error');
 
@@ -86,7 +88,7 @@ function validateForm(){
 
     }
 
-    if(!data.alamat){
+    if (!data.alamat) {
 
         document.getElementById('alamat').classList.add('error');
 
@@ -94,7 +96,7 @@ function validateForm(){
 
     }
 
-    if(!data.whatsapp){
+    if (!data.whatsapp) {
 
         document.getElementById('whatsapp').classList.add('error');
 
@@ -102,7 +104,7 @@ function validateForm(){
 
     }
 
-    if(!valid){
+    if (!valid) {
 
         alert("Lengkapi data terlebih dahulu");
 
@@ -116,9 +118,9 @@ function validateForm(){
 
 /* PREVIEW */
 
-function previewPesanan(){
+function previewPesanan() {
 
-    if(!validateForm()) return;
+    if (!validateForm()) return;
 
     const data = getData();
 
@@ -170,7 +172,7 @@ function previewPesanan(){
 
 /* TUTUP MODAL */
 
-function closeModal(){
+function closeModal() {
 
     document.getElementById('modal').classList.remove('active');
 
@@ -178,7 +180,7 @@ function closeModal(){
 
 /* TOMBOL KIRIM WHATSAPP */
 
-function sendWhatsApp(){
+function sendWhatsApp() {
 
     previewPesanan();
 
@@ -186,7 +188,7 @@ function sendWhatsApp(){
 
 /* KIRIM SEKARANG */
 
-function sendNow(){
+function sendNow() {
 
     const data = getData();
 
@@ -206,14 +208,14 @@ function sendNow(){
 
     document.getElementById('successAlert').classList.add('show');
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
-        window.open(url,'_blank');
+        window.open(url, '_blank');
 
         document.getElementById('successAlert').classList.remove('show');
 
         closeModal();
 
-    },1000);
+    }, 1000);
 
 }
