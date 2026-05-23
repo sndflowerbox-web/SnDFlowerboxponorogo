@@ -1,6 +1,16 @@
+/* NOMOR ADMIN */
+
 const ADMIN = "6285135666976";
 
-/* AMBIL RADIO */
+/* AMBIL DATA */
+
+function getValue(id){
+
+    return document.getElementById(id).value;
+
+}
+
+/* RADIO */
 
 function getRadio(name){
 
@@ -10,61 +20,64 @@ function getRadio(name){
 
 }
 
-/* AMBIL CHECKBOX */
+/* CHECKBOX */
 
-function getCheckboxValues(){
+function getColors(){
 
     const checked = document.querySelectorAll('.checkbox-grid input:checked');
 
-    let values = [];
+    let result = [];
 
     checked.forEach(item => {
-        values.push(item.value);
+
+        result.push(item.value);
+
     });
 
-    return values.join(", ");
+    return result.join(", ");
 
 }
 
 /* BUAT PESAN */
 
-function createMessage(){
+function buildMessage(){
 
-    return `Halo Admin SnDflowerboxponorogo
+    return `
+Halo Admin SnDflowerboxponorogo
 
-Nama : ${document.getElementById('nama').value}
+Nama : ${getValue('nama')}
 
-Instagram : ${document.getElementById('instagram').value}
+Instagram : ${getValue('instagram')}
 
 Ucapan :
-${document.getElementById('ucapan').value}
+${getValue('ucapan')}
 
 Jenis :
 ${getRadio('jenis')}
 
 Warna Tulisan :
-${document.getElementById('warna').value}
+${getValue('warna')}
 
 Selendang :
 ${getRadio('selendang')}
 
 Warna Bunga :
-${getCheckboxValues()}
+${getColors()}
 
 Tanggal :
-${document.getElementById('tanggal').value}
+${getValue('tanggal')}
 
 Waktu :
-${document.getElementById('waktu').value}
+${getValue('waktu')}
 
 Alamat :
-${document.getElementById('alamat').value}
+${getValue('alamat')}
 
 WhatsApp :
-${document.getElementById('whatsapp').value}
+${getValue('whatsapp')}
 
 Emoji :
-${document.getElementById('emoji').value}
+${getValue('emoji')}
 `;
 
 }
@@ -73,13 +86,13 @@ ${document.getElementById('emoji').value}
 
 function previewPesanan(){
 
-    const text = createMessage();
+    const message = buildMessage();
 
     document.getElementById('previewContent').innerHTML = `
 
         <div class="preview-box">
 
-            ${text.replace(/\n/g,"<br>")}
+            ${message.replace(/\n/g,"<br>")}
 
         </div>
 
@@ -89,7 +102,7 @@ function previewPesanan(){
 
 }
 
-/* CLOSE MODAL */
+/* CLOSE */
 
 function closeModal(){
 
@@ -99,20 +112,28 @@ function closeModal(){
 
 /* KIRIM WA */
 
-function sendWhatsApp(){
+function kirimWA(){
 
-    const text = encodeURIComponent(createMessage());
+    const text = encodeURIComponent(buildMessage());
 
-    const url = `https://wa.me/${ADMIN}?text=${text}`;
+    const url = "https://wa.me/" + ADMIN + "?text=" + text;
 
-    window.open(url, '_blank');
+    window.location.href = url;
 
 }
 
-/* KIRIM DARI MODAL */
+/* BUTTON UTAMA */
+
+function sendWhatsApp(){
+
+    kirimWA();
+
+}
+
+/* BUTTON MODAL */
 
 function sendNow(){
 
-    sendWhatsApp();
+    kirimWA();
 
 }
