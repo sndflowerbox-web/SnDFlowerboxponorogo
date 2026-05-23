@@ -1,165 +1,6 @@
 /* =========================
-   RESPONSIVE FIX
+   MODAL PREVIEW
 ========================= */
-
-html,
-body{
-    width:100%;
-    overflow-x:hidden;
-    overflow-y:auto;
-}
-
-/* BODY */
-
-body{
-
-    margin:0;
-    padding:15px;
-
-    background:#f3f3f3;
-
-    display:flex;
-    justify-content:center;
-
-    min-height:100vh;
-}
-
-/* CONTAINER */
-
-.container{
-
-    width:100%;
-    max-width:550px;
-
-    background:#fff;
-
-    border-radius:24px;
-
-    padding:22px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-
-    overflow:hidden;
-}
-
-/* INPUT */
-
-input,
-textarea,
-button{
-
-    width:100%;
-
-    max-width:100%;
-
-    font-size:16px;
-
-    border-radius:14px;
-
-    box-sizing:border-box;
-}
-
-/* TEXTAREA */
-
-textarea{
-
-    min-height:120px;
-
-    resize:vertical;
-}
-
-/* RADIO */
-
-.radio-group{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:12px;
-}
-
-.radio-item{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-}
-
-/* INLINE */
-
-.radio-inline{
-
-    display:flex;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-}
-
-/* CHECKBOX */
-
-.checkbox-grid{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:12px;
-}
-
-.checkbox-grid label{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:6px;
-
-    font-size:15px;
-}
-
-/* DATE */
-
-.date-group{
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:14px;
-}
-
-/* BUTTON */
-
-.button-group{
-
-    display:flex;
-
-    gap:14px;
-
-    margin-top:24px;
-}
-
-.button-group button{
-
-    flex:1;
-}
-
-/* PREVIEW */
-
-.preview-box{
-
-    white-space:pre-wrap;
-
-    word-break:break-word;
-
-    line-height:1.7;
-}
-
-/* MODAL */
 
 .modal{
 
@@ -169,7 +10,7 @@ textarea{
     left:0;
 
     width:100%;
-    height:100%;
+    height:100vh;
 
     background:rgba(0,0,0,0.6);
 
@@ -184,20 +25,15 @@ textarea{
 }
 
 .modal.active{
-
     display:flex;
 }
 
-/* MODAL CONTENT */
+/* BOX MODAL */
 
 .modal-content{
 
     width:100%;
     max-width:520px;
-
-    max-height:90vh;
-
-    overflow:hidden;
 
     background:#fff;
 
@@ -208,66 +44,126 @@ textarea{
     display:flex;
 
     flex-direction:column;
+
+    max-height:90vh;
+
+    overflow:hidden;
 }
 
-/* SCROLL PREVIEW */
+/* JUDUL */
+
+.modal-content h2{
+
+    font-size:28px;
+
+    margin-bottom:18px;
+
+    flex-shrink:0;
+}
+
+/* AREA SCROLL */
 
 #previewContent{
 
+    flex:1;
+
     overflow-y:auto;
 
-    max-height:60vh;
+    overflow-x:hidden;
+
+    max-height:65vh;
+
+    padding-right:6px;
 
     margin-bottom:20px;
+}
 
-    padding-right:5px;
+/* STYLE SCROLL */
+
+#previewContent::-webkit-scrollbar{
+    width:6px;
+}
+
+#previewContent::-webkit-scrollbar-thumb{
+
+    background:#25D366;
+
+    border-radius:20px;
+}
+
+/* BOX PREVIEW */
+
+.preview-box{
+
+    background:#f7f7f7;
+
+    border-radius:16px;
+
+    padding:18px;
+
+    line-height:1.8;
+
+    word-break:break-word;
+
+    white-space:pre-wrap;
+
+    font-size:15px;
+}
+
+/* BUTTON */
+
+.modal .button-group{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-shrink:0;
+}
+
+.modal .button-group button{
+
+    flex:1;
 }
 
 /* MOBILE */
 
 @media(max-width:600px){
 
-    body{
+    .modal{
         padding:10px;
-    }
-
-    .container{
-
-        padding:18px;
-
-        border-radius:18px;
-    }
-
-    .header h1{
-        font-size:30px;
-    }
-
-    .logo{
-
-        width:90px;
-        height:90px;
-    }
-
-    .date-group{
-
-        grid-template-columns:1fr;
-    }
-
-    .button-group{
-
-        flex-direction:column;
     }
 
     .modal-content{
 
         max-height:95vh;
 
-        padding:18px;
+        border-radius:20px;
+
+        padding:16px;
+    }
+
+    .modal-content h2{
+
+        font-size:22px;
     }
 
     #previewContent{
 
-        max-height:65vh;
+        max-height:70vh;
     }
 
 }
+/* SCROLL MODAL HP */
+
+document.addEventListener("touchmove", function(e){
+
+    const modal = document.getElementById("previewContent");
+
+    if(modal){
+
+        modal.style.webkitOverflowScrolling = "touch";
+
+    }
+
+}, { passive:true });
