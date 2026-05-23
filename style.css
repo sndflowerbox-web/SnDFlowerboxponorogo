@@ -28,13 +28,13 @@ select{
 
 /* RADIO & CHECKBOX */
 
-.radio-group,
-.checkbox-grid{
+.radio-group{
     display:flex;
-    flex-wrap:wrap;
-    gap:12px 18px;
-    margin-top:8px;
+    flex-direction:column;
+    gap:14px;
+    margin-top:10px;
 }
+
 
 .radio-group label,
 .checkbox-grid label{
