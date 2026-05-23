@@ -1,16 +1,18 @@
-/* NOMOR ADMIN */
+/* =========================
+   SnD Flowerbox Script
+========================= */
 
 const ADMIN = "6285135666976";
 
-/* AMBIL DATA */
+/* =========================
+   HELPER
+========================= */
 
 function getValue(id){
 
-    return document.getElementById(id).value;
+    return document.getElementById(id).value.trim();
 
 }
-
-/* RADIO */
 
 function getRadio(name){
 
@@ -20,71 +22,120 @@ function getRadio(name){
 
 }
 
-/* CHECKBOX */
-
 function getColors(){
 
     const checked = document.querySelectorAll('.checkbox-grid input:checked');
 
-    let result = [];
+    let values = [];
 
     checked.forEach(item => {
 
-        result.push(item.value);
+        values.push(item.value);
 
     });
 
-    return result.join(", ");
+    return values.length ? values.join(", ") : "-";
 
 }
 
-/* BUAT PESAN */
+/* =========================
+   VALIDASI
+========================= */
+
+function validateForm(){
+
+    const requiredFields = [
+
+        "nama",
+        "ucapan",
+        "warna",
+        "alamat",
+        "whatsapp"
+
+    ];
+
+    let valid = true;
+
+    requiredFields.forEach(id => {
+
+        const field = document.getElementById(id);
+
+        if(field.value.trim() === ""){
+
+            field.style.border = "2px solid red";
+
+            valid = false;
+
+        }else{
+
+            field.style.border = "1px solid #ddd";
+
+        }
+
+    });
+
+    if(!document.querySelector('input[name="jenis"]:checked')){
+
+        alert("Pilih jenis papan bunga");
+
+        valid = false;
+
+    }
+
+    return valid;
+
+}
+
+/* =========================
+   FORMAT PESAN
+========================= */
 
 function buildMessage(){
 
-    return `
-Halo Admin SnDflowerboxponorogo
+    return `Halo Admin SnDflowerboxponorogo
 
-Nama : ${getValue('nama')}
+📌 Nama : ${getValue('nama')}
+📷 Instagram : ${getValue('instagram')}
 
-Instagram : ${getValue('instagram')}
-
-Ucapan :
+💌 Ucapan :
 ${getValue('ucapan')}
 
-Jenis :
+🎁 Jenis :
 ${getRadio('jenis')}
 
-Warna Tulisan :
+🎨 Warna Tulisan :
 ${getValue('warna')}
 
-Selendang :
+🧣 Selendang :
 ${getRadio('selendang')}
 
-Warna Bunga :
+🌸 Warna Bunga :
 ${getColors()}
 
-Tanggal :
+📅 Tanggal :
 ${getValue('tanggal')}
 
-Waktu :
+⏰ Waktu :
 ${getValue('waktu')}
 
-Alamat :
+📍 Alamat :
 ${getValue('alamat')}
 
-WhatsApp :
+📱 WhatsApp :
 ${getValue('whatsapp')}
 
-Emoji :
 ${getValue('emoji')}
 `;
 
 }
 
-/* PREVIEW */
+/* =========================
+   PREVIEW
+========================= */
 
 function previewPesanan(){
+
+    if(!validateForm()) return;
 
     const message = buildMessage();
 
@@ -102,7 +153,9 @@ function previewPesanan(){
 
 }
 
-/* CLOSE */
+/* =========================
+   TUTUP MODAL
+========================= */
 
 function closeModal(){
 
@@ -110,30 +163,68 @@ function closeModal(){
 
 }
 
-/* KIRIM WA */
-
-function kirimWA(){
-
-    const text = encodeURIComponent(buildMessage());
-
-    const url = "https://wa.me/" + ADMIN + "?text=" + text;
-
-    window.location.href = url;
-
-}
-
-/* BUTTON UTAMA */
+/* =========================
+   KIRIM WHATSAPP
+========================= */
 
 function sendWhatsApp(){
 
-    kirimWA();
+    if(!validateForm()) return;
+
+    const text = encodeURIComponent(buildMessage());
+
+    const url = `https://wa.me/${ADMIN}?text=${text}`;
+
+    window.open(url, "_blank");
 
 }
 
-/* BUTTON MODAL */
+/* =========================
+   KIRIM DARI MODAL
+========================= */
 
 function sendNow(){
 
-    kirimWA();
+    sendWhatsApp();
 
 }
+
+/* =========================
+   TUTUP MODAL SAAT KLIK LUAR
+========================= */
+
+window.onclick = function(event){
+
+    const modal = document.getElementById('modal');
+
+    if(event.target === modal){
+
+        closeModal();
+
+    }
+
+};
+
+/* =========================
+   AUTO HAPUS BORDER MERAH
+========================= */
+
+document.addEventListener("input", function(e){
+
+    if(
+
+        e.target.tagName === "INPUT" ||
+
+        e.target.tagName === "TEXTAREA"
+
+    ){
+
+        if(e.target.value.trim() !== ""){
+
+            e.target.style.border = "1px solid #ddd";
+
+        }
+
+    }
+
+});
