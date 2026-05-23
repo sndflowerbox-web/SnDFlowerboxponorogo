@@ -1,51 +1,15 @@
-/* RAPIIKAN SEMUA MENU */
+/* ===== FIX FULL ALIGNMENT ===== */
 
-.form-group,
-.radio-group,
-.checkbox-grid,
-.row{
+.form-group{
     width:100%;
+    margin-bottom:16px;
 }
 
-.radio-group label,
-.checkbox-grid label{
-    display:flex;
-    align-items:center;
-    gap:8px;
+.form-group label{
+    display:block;
+    margin-bottom:8px;
     font-size:15px;
-    line-height:1.2;
-}
-
-.radio-group input,
-.checkbox-grid input{
-    width:auto;
-    margin:0;
-}
-
-/* JENIS PAPAN BUNGA */
-
-.radio-group{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-    margin-top:8px;
-}
-
-/* WARNA BUNGA */
-
-.checkbox-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-top:10px;
-}
-
-/* TANGGAL DAN WAKTU */
-
-.row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+    font-weight:600;
 }
 
 /* INPUT */
@@ -55,42 +19,110 @@ textarea,
 select{
     width:100%;
     display:block;
+    padding:14px 16px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    font-size:15px;
+    background:#fafafa;
+}
+
+/* RADIO & CHECKBOX */
+
+.radio-group,
+.checkbox-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 18px;
+    margin-top:8px;
+}
+
+.radio-group label,
+.checkbox-grid label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin:0;
+    font-weight:500;
+    white-space:nowrap;
+}
+
+/* BIAR BULATAN TIDAK TURUN */
+
+.radio-group input[type="radio"],
+.checkbox-grid input[type="checkbox"]{
+    width:16px;
+    height:16px;
+    margin:0;
+    flex-shrink:0;
+}
+
+/* ROW TANGGAL */
+
+.row{
+    display:flex;
+    gap:14px;
+    width:100%;
+}
+
+.row .form-group{
+    flex:1;
 }
 
 /* BUTTON */
 
 .button-group{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+    display:flex;
+    gap:14px;
+    width:100%;
+    margin-top:20px;
+}
+
+.button-group button{
+    flex:1;
 }
 
 /* MODAL */
 
 .modal-buttons{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+    display:flex;
+    gap:14px;
 }
 
-/* HP RESPONSIVE */
+.modal-buttons button{
+    flex:1;
+}
+
+/* PREVIEW BOX */
+
+.preview-box{
+    line-height:1.6;
+    word-break:break-word;
+}
+
+/* RESPONSIVE HP */
 
 @media(max-width:768px){
 
-    .checkbox-grid{
-        grid-template-columns:1fr 1fr;
+    .container{
+        padding:18px;
     }
 
     .row{
-        grid-template-columns:1fr;
+        flex-direction:column;
+        gap:0;
     }
 
     .button-group{
-        grid-template-columns:1fr;
+        flex-direction:column;
     }
 
     .modal-buttons{
-        grid-template-columns:1fr;
+        flex-direction:column;
+    }
+
+    .radio-group,
+    .checkbox-grid{
+        gap:10px 14px;
     }
 
 }
@@ -99,25 +131,28 @@ select{
 
 @media(max-width:480px){
 
-    .container{
-        padding:16px;
+    body{
+        padding:10px;
     }
 
-    .checkbox-grid{
-        grid-template-columns:1fr;
+    .container{
+        border-radius:18px;
+        padding:16px;
     }
 
     .header h1{
         font-size:24px;
     }
 
-    label{
-        font-size:14px;
-    }
-
     input,
     textarea{
         font-size:14px;
+    }
+
+    .radio-group,
+    .checkbox-grid{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
 }
