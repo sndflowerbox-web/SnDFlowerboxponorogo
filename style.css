@@ -5,26 +5,29 @@
 }
 
 body{
-    background:#f3f3f3;
     font-family:Arial,sans-serif;
+    background:#f3f3f3;
 
     min-height:100vh;
 
     display:flex;
     justify-content:center;
+    align-items:flex-start;
 
     padding:20px;
 }
 
+/* CONTAINER */
+
 .container{
     width:100%;
-    max-width:600px;
+    max-width:560px;
 
     background:#fff;
 
-    border-radius:20px;
+    border-radius:24px;
 
-    padding:25px;
+    padding:24px;
 
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
@@ -37,19 +40,20 @@ body{
 }
 
 .logo{
-    width:100px;
-    height:100px;
+    width:90px;
+    height:90px;
 
     border-radius:50%;
 
     object-fit:cover;
 
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
 .header h1{
     font-size:34px;
-    margin-bottom:6px;
+    margin-bottom:8px;
+    color:#222;
 }
 
 .header p{
@@ -69,8 +73,7 @@ label{
     margin-bottom:10px;
 
     font-size:16px;
-
-    font-weight:bold;
+    font-weight:700;
 
     color:#333;
 }
@@ -88,13 +91,15 @@ textarea{
 
     padding:16px;
 
-    border:2px solid #ddd;
+    border:2px solid #e4e4e4;
 
-    border-radius:16px;
+    border-radius:18px;
 
     font-size:16px;
 
     background:#fff;
+
+    transition:0.3s;
 }
 
 input:focus,
@@ -103,25 +108,32 @@ textarea:focus{
     border-color:#25D366;
 }
 
+input::placeholder,
+textarea::placeholder{
+    color:#aaa;
+}
+
 textarea{
     min-height:120px;
     resize:vertical;
 }
 
-/* BOX CONTOH */
+/* EXAMPLE BOX */
 
 .example-box{
     background:#f7f7f7;
 
     border-left:4px solid #25D366;
 
-    padding:16px;
+    padding:18px;
 
-    border-radius:14px;
+    border-radius:16px;
 
     margin-bottom:14px;
 
     line-height:1.8;
+
+    font-size:15px;
 }
 
 /* RADIO */
@@ -136,6 +148,8 @@ textarea{
     display:flex;
     align-items:center;
     gap:10px;
+
+    font-size:16px;
 }
 
 .radio-item input{
@@ -156,6 +170,8 @@ textarea{
     display:flex;
     align-items:center;
     gap:8px;
+
+    font-size:15px;
 }
 
 .checkbox-item input,
@@ -177,27 +193,28 @@ textarea{
     display:flex;
     gap:14px;
 
-    margin-top:30px;
+    margin-top:32px;
 }
 
 button{
     flex:1;
 
-    padding:16px;
-
     border:none;
 
-    border-radius:16px;
+    border-radius:18px;
+
+    padding:16px;
 
     font-size:18px;
-
     font-weight:bold;
 
     cursor:pointer;
+
+    transition:0.3s;
 }
 
 .btn-preview{
-    background:#e8e8e8;
+    background:#ececec;
     color:#222;
 }
 
@@ -256,6 +273,8 @@ button{
     border-radius:12px;
 
     margin-bottom:12px;
+
+    line-height:1.7;
 }
 
 /* ALERT */
@@ -275,6 +294,8 @@ button{
     border-radius:12px;
 
     display:none;
+
+    z-index:99999;
 }
 
 .success-alert.show{
@@ -287,7 +308,7 @@ button{
     border:2px solid red !important;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 
 @media(max-width:600px){
 
@@ -297,6 +318,7 @@ button{
 
     .container{
         padding:18px;
+        border-radius:20px;
     }
 
     .header h1{
@@ -309,6 +331,10 @@ button{
 
     .button-group{
         flex-direction:column;
+    }
+
+    button{
+        width:100%;
     }
 
 }
