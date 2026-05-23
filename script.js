@@ -125,6 +125,7 @@ ${getValue('alamat')}
 WhatsApp :
 ${getValue('whatsapp')}
 
+Emoji :
 ${getValue('emoji')}
 `;
 
