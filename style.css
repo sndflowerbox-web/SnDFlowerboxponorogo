@@ -1,140 +1,194 @@
-/* =========================
-   FIX KHUSUS HP
-========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-@media screen and (max-width:600px){
+body{
+    font-family:Arial,sans-serif;
+    background:#f3f3f3;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    width:100%;
+    max-width:550px;
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    width:90px;
+    height:90px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:12px;
+}
+
+.header h1{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#666;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    font-size:16px;
+}
+
+textarea{
+    min-height:120px;
+}
+
+.example-box{
+    background:#f7f7f7;
+    padding:15px;
+    border-left:4px solid #25D366;
+    border-radius:14px;
+    margin-bottom:14px;
+    line-height:1.7;
+}
+
+.radio-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.radio-inline{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.checkbox-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.date-group{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.button-group{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+button{
+    flex:1;
+    border:none;
+    border-radius:16px;
+    padding:16px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-preview{
+    background:#e8e8e8;
+}
+
+.btn-submit{
+    background:#25D366;
+    color:#fff;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    width:100%;
+    max-width:500px;
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    max-height:90vh;
+    overflow:hidden;
+}
+
+#previewContent{
+    overflow-y:auto;
+    max-height:60vh;
+    margin-top:15px;
+}
+
+.preview-box{
+    background:#f7f7f7;
+    padding:15px;
+    border-radius:14px;
+    line-height:1.7;
+    white-space:pre-wrap;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
 
     body{
-        padding:8px;
+        padding:10px;
     }
 
     .container{
-        width:100%;
         padding:16px;
-        border-radius:16px;
-    }
-
-    /* HEADER */
-
-    .header{
-        margin-bottom:20px;
-    }
-
-    .logo{
-        width:80px;
-        height:80px;
     }
 
     .header h1{
         font-size:24px;
-        line-height:1.3;
     }
-
-    .header p{
-        font-size:14px;
-    }
-
-    /* LABEL */
-
-    label{
-        font-size:15px;
-    }
-
-    /* INPUT */
-
-    input,
-    textarea{
-        width:100%;
-        font-size:15px;
-        padding:14px;
-        border-radius:14px;
-    }
-
-    textarea{
-        min-height:110px;
-    }
-
-    /* RADIO */
-
-    .radio-group{
-        gap:10px;
-    }
-
-    .radio-item{
-        align-items:flex-start;
-    }
-
-    .radio-item span{
-        font-size:15px;
-        line-height:1.4;
-    }
-
-    /* INLINE */
-
-    .radio-inline{
-        gap:16px;
-    }
-
-    .radio-inline label{
-        font-size:15px;
-    }
-
-    /* CHECKBOX */
-
-    .checkbox-grid{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .checkbox-grid label{
-        font-size:15px;
-    }
-
-    /* DATE */
 
     .date-group{
         grid-template-columns:1fr;
-        gap:12px;
     }
-
-    /* BUTTON */
 
     .button-group{
         flex-direction:column;
-        gap:12px;
-    }
-
-    button{
-        width:100%;
-        font-size:16px;
-        padding:15px;
-    }
-
-    /* MODAL */
-
-    .modal{
-        padding:10px;
-    }
-
-    .modal-content{
-        width:100%;
-        padding:16px;
-        border-radius:18px;
-        max-height:94vh;
-    }
-
-    .modal-content h2{
-        font-size:22px;
-    }
-
-    #previewContent{
-        max-height:65vh;
-    }
-
-    .preview-box{
-        font-size:14px;
-        line-height:1.7;
     }
 
 }
