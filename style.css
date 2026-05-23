@@ -1,67 +1,173 @@
-/* ===== FIX FULL ALIGNMENT ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f3f3f3;
+    color:#222;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:15px;
+}
+
+/* CONTAINER */
+
+.container{
+    width:100%;
+    max-width:560px;
+    background:#fff;
+    border-radius:24px;
+    padding:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:22px;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:14px;
+    border:4px solid #f2f2f2;
+}
+
+.header h1{
+    font-size:28px;
+    margin-bottom:6px;
+    font-weight:700;
+}
+
+.header p{
+    font-size:14px;
+    color:#777;
+}
+
+/* FORM */
 
 .form-group{
-    width:100%;
     margin-bottom:16px;
 }
 
-.form-group label{
+label{
     display:block;
     margin-bottom:8px;
     font-size:15px;
     font-weight:600;
 }
 
+.required::after{
+    content:" *";
+    color:red;
+}
+
 /* INPUT */
 
 input,
-textarea,
-select{
+textarea{
     width:100%;
-    display:block;
     padding:14px 16px;
     border:1px solid #ddd;
-    border-radius:14px;
-    font-size:15px;
+    border-radius:16px;
     background:#fafafa;
+    font-size:15px;
+    transition:0.3s;
 }
 
-/* RADIO & CHECKBOX */
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#25d366;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(37,211,102,0.15);
+}
+
+textarea{
+    min-height:120px;
+    resize:none;
+}
+
+/* UCAPAN BOX */
+
+.ucapan-box{
+    background:#f7f7f7;
+    border-left:4px solid #25d366;
+    border-radius:14px;
+    padding:14px;
+    line-height:1.6;
+    margin-bottom:14px;
+}
+
+/* RADIO GROUP */
 
 .radio-group{
     display:flex;
     flex-direction:column;
-    gap:14px;
-    margin-top:10px;
+    gap:12px;
+    margin-top:8px;
 }
 
-
-.radio-group label,
-.checkbox-grid label{
+.radio-item{
     display:flex;
     align-items:center;
-    gap:6px;
-    margin:0;
-    font-weight:500;
-    white-space:nowrap;
+    gap:12px;
+    font-size:16px;
+    font-weight:600;
 }
 
-/* BIAR BULATAN TIDAK TURUN */
-
-.radio-group input[type="radio"],
-.checkbox-grid input[type="checkbox"]{
-    width:16px;
-    height:16px;
+.radio-item input[type="radio"]{
+    width:18px;
+    height:18px;
     margin:0;
     flex-shrink:0;
 }
 
-/* ROW TANGGAL */
+.radio-item span{
+    line-height:1.3;
+}
+
+/* CHECKBOX */
+
+.checkbox-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:10px;
+}
+
+.checkbox-grid label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.checkbox-grid input[type="checkbox"]{
+    width:18px;
+    height:18px;
+    margin:0;
+    flex-shrink:0;
+}
+
+/* ROW */
 
 .row{
     display:flex;
     gap:14px;
-    width:100%;
 }
 
 .row .form-group{
@@ -73,38 +179,115 @@ select{
 .button-group{
     display:flex;
     gap:14px;
-    width:100%;
-    margin-top:20px;
+    margin-top:22px;
 }
 
-.button-group button{
+button{
     flex:1;
+    border:none;
+    border-radius:18px;
+    padding:15px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.preview-btn{
+    background:#e7e7e7;
+    color:#222;
+}
+
+.preview-btn:hover{
+    background:#dcdcdc;
+}
+
+.whatsapp-btn{
+    background:#25d366;
+    color:#fff;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebe5d;
 }
 
 /* MODAL */
 
-.modal-buttons{
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    z-index:999;
+}
+
+.modal.active{
     display:flex;
-    gap:14px;
 }
 
-.modal-buttons button{
-    flex:1;
+.modal-content{
+    background:#fff;
+    width:100%;
+    max-width:520px;
+    max-height:90vh;
+    overflow-y:auto;
+    border-radius:24px;
+    padding:22px;
 }
 
-/* PREVIEW BOX */
+.modal-content h2{
+    font-size:26px;
+    margin-bottom:18px;
+}
 
 .preview-box{
-    line-height:1.6;
+    background:#f7f7f7;
+    border-radius:16px;
+    padding:16px;
+    line-height:1.7;
+    white-space:pre-line;
     word-break:break-word;
 }
 
-/* RESPONSIVE HP */
+.modal-buttons{
+    display:flex;
+    gap:14px;
+    margin-top:20px;
+}
+
+.close-btn{
+    background:#e5e5e5;
+    color:#222;
+}
+
+.send-btn{
+    background:#25d366;
+    color:#fff;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:768px){
 
+    body{
+        padding:10px;
+    }
+
     .container{
         padding:18px;
+        border-radius:20px;
+    }
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .logo{
+        width:90px;
+        height:90px;
     }
 
     .row{
@@ -120,28 +303,17 @@ select{
         flex-direction:column;
     }
 
-    .radio-group,
-    .checkbox-grid{
-        gap:10px 14px;
-    }
-
 }
-
-/* HP KECIL */
 
 @media(max-width:480px){
 
-    body{
-        padding:10px;
-    }
-
     .container{
-        border-radius:18px;
         padding:16px;
     }
 
-    .header h1{
-        font-size:24px;
+    .checkbox-grid{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
     }
 
     input,
@@ -149,10 +321,8 @@ select{
         font-size:14px;
     }
 
-    .radio-group,
-    .checkbox-grid{
-        flex-direction:column;
-        align-items:flex-start;
+    button{
+        font-size:16px;
     }
 
 }
