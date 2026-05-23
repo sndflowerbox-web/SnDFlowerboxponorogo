@@ -4,29 +4,22 @@
     box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
     font-family:'Segoe UI',sans-serif;
-    background:#f3f3f3;
-    color:#222;
-    min-height:100vh;
+    background:#f5f5f5;
     display:flex;
     justify-content:center;
     padding:15px;
+    color:#222;
 }
-
-/* CONTAINER */
 
 .container{
     width:100%;
-    max-width:560px;
+    max-width:520px;
     background:#fff;
     border-radius:24px;
-    padding:22px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    padding:24px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
 }
 
 /* HEADER */
@@ -37,29 +30,28 @@ body{
 }
 
 .logo{
-    width:100px;
-    height:100px;
+    width:95px;
+    height:95px;
     object-fit:cover;
     border-radius:50%;
     margin-bottom:14px;
-    border:4px solid #f2f2f2;
 }
 
 .header h1{
     font-size:28px;
-    margin-bottom:6px;
+    margin-bottom:4px;
     font-weight:700;
 }
 
 .header p{
-    font-size:14px;
     color:#777;
+    font-size:14px;
 }
 
 /* FORM */
 
 .form-group{
-    margin-bottom:16px;
+    margin-bottom:18px;
 }
 
 label{
@@ -74,17 +66,14 @@ label{
     color:red;
 }
 
-/* INPUT */
-
 input,
 textarea{
     width:100%;
-    padding:14px 16px;
     border:1px solid #ddd;
     border-radius:16px;
-    background:#fafafa;
+    padding:14px 16px;
     font-size:15px;
-    transition:0.3s;
+    background:#fafafa;
 }
 
 input:focus,
@@ -92,7 +81,6 @@ textarea:focus{
     outline:none;
     border-color:#25d366;
     background:#fff;
-    box-shadow:0 0 0 4px rgba(37,211,102,0.15);
 }
 
 textarea{
@@ -100,10 +88,10 @@ textarea{
     resize:none;
 }
 
-/* UCAPAN BOX */
+/* UCAPAN */
 
 .ucapan-box{
-    background:#f7f7f7;
+    background:#f8f8f8;
     border-left:4px solid #25d366;
     border-radius:14px;
     padding:14px;
@@ -111,32 +99,24 @@ textarea{
     margin-bottom:14px;
 }
 
-/* RADIO GROUP */
+/* RADIO */
 
 .radio-group{
     display:flex;
     flex-direction:column;
     gap:12px;
-    margin-top:8px;
 }
 
 .radio-item{
     display:flex;
     align-items:center;
-    gap:12px;
-    font-size:16px;
-    font-weight:600;
+    gap:10px;
+    font-weight:500;
 }
 
-.radio-item input[type="radio"]{
+.radio-item input{
     width:18px;
     height:18px;
-    margin:0;
-    flex-shrink:0;
-}
-
-.radio-item span{
-    line-height:1.3;
 }
 
 /* CHECKBOX */
@@ -144,30 +124,26 @@ textarea{
 .checkbox-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:14px;
-    margin-top:10px;
+    gap:12px;
 }
 
 .checkbox-grid label{
     display:flex;
     align-items:center;
-    gap:10px;
-    font-size:15px;
-    font-weight:600;
+    gap:8px;
+    font-weight:500;
 }
 
-.checkbox-grid input[type="checkbox"]{
+.checkbox-grid input{
     width:18px;
     height:18px;
-    margin:0;
-    flex-shrink:0;
 }
 
 /* ROW */
 
 .row{
     display:flex;
-    gap:14px;
+    gap:12px;
 }
 
 .row .form-group{
@@ -178,7 +154,7 @@ textarea{
 
 .button-group{
     display:flex;
-    gap:14px;
+    gap:12px;
     margin-top:22px;
 }
 
@@ -187,19 +163,14 @@ button{
     border:none;
     border-radius:18px;
     padding:15px;
-    font-size:17px;
+    font-size:16px;
     font-weight:700;
     cursor:pointer;
-    transition:0.3s;
 }
 
 .preview-btn{
-    background:#e7e7e7;
+    background:#e9e9e9;
     color:#222;
-}
-
-.preview-btn:hover{
-    background:#dcdcdc;
 }
 
 .whatsapp-btn{
@@ -207,16 +178,12 @@ button{
     color:#fff;
 }
 
-.whatsapp-btn:hover{
-    background:#1ebe5d;
-}
-
 /* MODAL */
 
 .modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.65);
+    background:rgba(0,0,0,0.6);
     display:none;
     justify-content:center;
     align-items:center;
@@ -231,63 +198,27 @@ button{
 .modal-content{
     background:#fff;
     width:100%;
-    max-width:520px;
+    max-width:500px;
     max-height:90vh;
     overflow-y:auto;
-    border-radius:24px;
+    border-radius:22px;
     padding:22px;
-}
-
-.modal-content h2{
-    font-size:26px;
-    margin-bottom:18px;
 }
 
 .preview-box{
     background:#f7f7f7;
-    border-radius:16px;
+    border-radius:14px;
     padding:16px;
     line-height:1.7;
     white-space:pre-line;
-    word-break:break-word;
-}
-
-.modal-buttons{
-    display:flex;
-    gap:14px;
-    margin-top:20px;
-}
-
-.close-btn{
-    background:#e5e5e5;
-    color:#222;
-}
-
-.send-btn{
-    background:#25d366;
-    color:#fff;
 }
 
 /* RESPONSIVE */
 
 @media(max-width:768px){
 
-    body{
-        padding:10px;
-    }
-
     .container{
         padding:18px;
-        border-radius:20px;
-    }
-
-    .header h1{
-        font-size:24px;
-    }
-
-    .logo{
-        width:90px;
-        height:90px;
     }
 
     .row{
@@ -299,30 +230,20 @@ button{
         flex-direction:column;
     }
 
-    .modal-buttons{
-        flex-direction:column;
-    }
-
 }
 
 @media(max-width:480px){
 
-    .container{
-        padding:16px;
+    body{
+        padding:10px;
+    }
+
+    .header h1{
+        font-size:24px;
     }
 
     .checkbox-grid{
         grid-template-columns:1fr 1fr;
-        gap:12px;
-    }
-
-    input,
-    textarea{
-        font-size:14px;
-    }
-
-    button{
-        font-size:16px;
     }
 
 }
