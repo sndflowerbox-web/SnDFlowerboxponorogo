@@ -5,31 +5,39 @@
 }
 
 html{
-    scroll-behavior:smooth;
+    width:100%;
     overflow-x:hidden;
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,sans-serif;
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
     background:#f3f3f3;
-    padding:20px;
+    font-family:Arial,sans-serif;
+    padding:15px;
     display:flex;
     justify-content:center;
-    min-height:100vh;
+    align-items:flex-start;
 }
+
+/* CONTAINER */
 
 .container{
     width:100%;
     max-width:550px;
-    background:white;
+    background:#fff;
     border-radius:20px;
     padding:24px;
     box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
+/* HEADER */
+
 .header{
     text-align:center;
-    margin-bottom:24px;
+    margin-bottom:28px;
 }
 
 .logo{
@@ -37,27 +45,44 @@ body{
     height:90px;
     object-fit:cover;
     border-radius:50%;
-    margin-bottom:12px;
+    margin-bottom:14px;
 }
 
 .header h1{
     font-size:28px;
+    color:#222;
     line-height:1.4;
 }
 
 .header p{
+    font-size:14px;
     color:#666;
-    margin-top:6px;
+    margin-top:4px;
 }
 
+/* FORM */
+
 .form-group{
-    margin-bottom:18px;
+    margin-bottom:20px;
+}
+
+.form-section{
+    margin-bottom:24px;
+}
+
+.form-section-title{
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:12px;
+    color:#333;
 }
 
 label{
     display:block;
     margin-bottom:8px;
+    font-size:14px;
     font-weight:bold;
+    color:#333;
 }
 
 .required::after{
@@ -65,28 +90,45 @@ label{
     color:red;
 }
 
+/* INPUT */
+
 input,
 textarea,
-button{
+select{
     width:100%;
     padding:14px;
-    border-radius:14px;
     border:1px solid #ddd;
-    font-size:16px;
-}
-
-textarea{
-    min-height:100px;
-    resize:vertical;
+    border-radius:14px;
+    font-size:15px;
+    background:#fff;
+    transition:0.3s;
 }
 
 input:focus,
-textarea:focus{
+textarea:focus,
+select:focus{
     outline:none;
     border-color:#25D366;
 }
 
-/* RADIO */
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+/* EXAMPLE BOX */
+
+.example-box{
+    background:#f8f8f8;
+    border-left:4px solid #25D366;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:12px;
+    line-height:1.7;
+    font-size:13px;
+}
+
+/* RADIO & CHECKBOX */
 
 .radio-group{
     display:flex;
@@ -94,37 +136,69 @@ textarea:focus{
     gap:12px;
 }
 
-.radio-item{
+.radio-item,
+.checkbox-item,
+.color-option{
     display:flex;
     align-items:center;
     gap:10px;
 }
 
-.radio-item input{
+.radio-item input,
+.checkbox-item input,
+.color-option input{
     width:auto;
+}
+
+.checkbox-group,
+.color-options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+/* DATE */
+
+.date-time-group{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
 }
 
 /* BUTTON */
 
 .button-group{
     display:flex;
-    gap:12px;
-    margin-top:24px;
+    gap:14px;
+    margin-top:30px;
 }
 
 button{
+    flex:1;
     border:none;
-    cursor:pointer;
+    border-radius:14px;
+    padding:15px;
+    font-size:15px;
     font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
 .btn-preview{
     background:#eee;
 }
 
+.btn-preview:hover{
+    background:#ddd;
+}
+
 .btn-submit{
     background:#25D366;
     color:white;
+}
+
+.btn-submit:hover{
+    background:#1ebe5d;
 }
 
 /* MODAL */
@@ -152,7 +226,7 @@ button{
     max-width:500px;
     background:white;
     border-radius:20px;
-    padding:20px;
+    padding:22px;
     max-height:90vh;
     overflow-y:auto;
 }
@@ -164,6 +238,7 @@ button{
     padding:12px;
     border-radius:12px;
     margin-bottom:10px;
+    line-height:1.6;
 }
 
 /* ALERT */
@@ -187,12 +262,20 @@ button{
 /* ERROR */
 
 .error{
-    border:2px solid red;
+    border:2px solid red !important;
 }
 
 /* RESPONSIVE */
 
-@media(max-width:600px){
+@media screen and (max-width:768px){
+
+    .date-time-group{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media screen and (max-width:600px){
 
     body{
         padding:10px;
@@ -207,8 +290,36 @@ button{
         font-size:22px;
     }
 
+    .header p{
+        font-size:13px;
+    }
+
+    input,
+    textarea,
+    select{
+        font-size:14px;
+        padding:13px;
+    }
+
     .button-group{
         flex-direction:column;
     }
 
+    .modal{
+        align-items:flex-end;
+        padding:0;
+    }
+
+    .modal-content{
+        width:100%;
+        max-width:100%;
+        border-radius:20px 20px 0 0;
+        padding:20px;
+    }
+
+}
+
+img{
+    max-width:100%;
+    height:auto;
 }
