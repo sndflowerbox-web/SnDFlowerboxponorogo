@@ -1,5 +1,5 @@
 /* =========================
-   SnD Flowerbox Script
+   ADMIN WHATSAPP
 ========================= */
 
 const ADMIN = "6285135666976";
@@ -10,9 +10,15 @@ const ADMIN = "6285135666976";
 
 function getValue(id){
 
-    return document.getElementById(id).value.trim();
+    const el = document.getElementById(id);
+
+    return el ? el.value.trim() : "";
 
 }
+
+/* =========================
+   RADIO
+========================= */
 
 function getRadio(name){
 
@@ -21,6 +27,10 @@ function getRadio(name){
     return radio ? radio.value : "-";
 
 }
+
+/* =========================
+   CHECKBOX
+========================= */
 
 function getColors(){
 
@@ -44,7 +54,9 @@ function getColors(){
 
 function validateForm(){
 
-    const requiredFields = [
+    let valid = true;
+
+    const required = [
 
         "nama",
         "ucapan",
@@ -54,9 +66,7 @@ function validateForm(){
 
     ];
 
-    let valid = true;
-
-    requiredFields.forEach(id => {
+    required.forEach(id => {
 
         const field = document.getElementById(id);
 
@@ -94,36 +104,38 @@ function buildMessage(){
 
     return `Halo Admin SnDflowerboxponorogo
 
-📌 Nama : ${getValue('nama')}
-📷 Instagram : ${getValue('instagram')}
+Nama : ${getValue('nama')}
 
-💌 Ucapan :
+Instagram : ${getValue('instagram')}
+
+Ucapan :
 ${getValue('ucapan')}
 
-🎁 Jenis :
+Jenis :
 ${getRadio('jenis')}
 
-🎨 Warna Tulisan :
+Warna Tulisan :
 ${getValue('warna')}
 
-🧣 Selendang :
+Selendang :
 ${getRadio('selendang')}
 
-🌸 Warna Bunga :
+Warna Bunga :
 ${getColors()}
 
-📅 Tanggal :
+Tanggal :
 ${getValue('tanggal')}
 
-⏰ Waktu :
+Waktu :
 ${getValue('waktu')}
 
-📍 Alamat :
+Alamat :
 ${getValue('alamat')}
 
-📱 WhatsApp :
+WhatsApp :
 ${getValue('whatsapp')}
 
+Emoji :
 ${getValue('emoji')}
 `;
 
@@ -137,19 +149,21 @@ function previewPesanan(){
 
     if(!validateForm()) return;
 
-    const message = buildMessage();
+    const modal = document.getElementById("modal");
 
-    document.getElementById('previewContent').innerHTML = `
+    const preview = document.getElementById("previewContent");
+
+    preview.innerHTML = `
 
         <div class="preview-box">
 
-            ${message.replace(/\n/g,"<br>")}
+            ${buildMessage().replace(/\n/g, "<br>")}
 
         </div>
 
     `;
 
-    document.getElementById('modal').classList.add('active');
+    modal.classList.add("active");
 
 }
 
@@ -159,7 +173,7 @@ function previewPesanan(){
 
 function closeModal(){
 
-    document.getElementById('modal').classList.remove('active');
+    document.getElementById("modal").classList.remove("active");
 
 }
 
@@ -193,17 +207,17 @@ function sendNow(){
    TUTUP MODAL SAAT KLIK LUAR
 ========================= */
 
-window.onclick = function(event){
+window.addEventListener("click", function(e){
 
-    const modal = document.getElementById('modal');
+    const modal = document.getElementById("modal");
 
-    if(event.target === modal){
+    if(e.target === modal){
 
         closeModal();
 
     }
 
-};
+});
 
 /* =========================
    AUTO HAPUS BORDER MERAH
@@ -224,6 +238,26 @@ document.addEventListener("input", function(e){
             e.target.style.border = "1px solid #ddd";
 
         }
+
+    }
+
+});
+
+/* =========================
+   PREVENT FORM RELOAD
+========================= */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const form = document.getElementById("orderForm");
+
+    if(form){
+
+        form.addEventListener("submit", function(e){
+
+            e.preventDefault();
+
+        });
 
     }
 
