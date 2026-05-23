@@ -7,9 +7,9 @@
 body{
     font-family:Arial,sans-serif;
     background:#f3f3f3;
-    padding:15px;
     display:flex;
     justify-content:center;
+    padding:20px;
 }
 
 .container{
@@ -17,8 +17,8 @@ body{
     max-width:550px;
     background:#fff;
     border-radius:20px;
-    padding:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
 .header{
@@ -27,16 +27,16 @@ body{
 }
 
 .logo{
-    width:90px;
-    height:90px;
+    width:120px;
+    height:120px;
     object-fit:cover;
     border-radius:50%;
-    margin-bottom:12px;
+    margin-bottom:15px;
 }
 
 .header h1{
-    font-size:28px;
-    margin-bottom:8px;
+    font-size:32px;
+    margin-bottom:10px;
 }
 
 .header p{
@@ -49,8 +49,13 @@ body{
 
 label{
     display:block;
-    margin-bottom:10px;
+    margin-bottom:8px;
     font-weight:bold;
+}
+
+.required::after{
+    content:" *";
+    color:red;
 }
 
 input,
@@ -64,79 +69,68 @@ textarea{
 
 textarea{
     min-height:120px;
+    resize:none;
 }
 
-.example-box{
-    background:#f7f7f7;
-    padding:15px;
-    border-left:4px solid #25D366;
-    border-radius:14px;
-    margin-bottom:14px;
-    line-height:1.7;
-}
-
-.radio-group{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.radio-inline{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
+.radio-group,
 .checkbox-grid{
     display:flex;
     flex-wrap:wrap;
     gap:12px;
+    margin-top:10px;
 }
 
-.date-group{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
+.radio-group label,
+.checkbox-grid label{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-weight:normal;
+}
+
+.row{
+    display:flex;
+    gap:15px;
+}
+
+.row .form-group{
+    flex:1;
 }
 
 .button-group{
     display:flex;
-    gap:12px;
-    margin-top:20px;
+    gap:15px;
+    margin-top:25px;
 }
 
 button{
     flex:1;
+    padding:15px;
     border:none;
-    border-radius:16px;
-    padding:16px;
-    font-size:16px;
+    border-radius:14px;
+    font-size:18px;
     font-weight:bold;
     cursor:pointer;
 }
 
-.btn-preview{
-    background:#e8e8e8;
+.preview-btn{
+    background:#e5e5e5;
 }
 
-.btn-submit{
-    background:#25D366;
-    color:#fff;
+.whatsapp-btn{
+    background:#25d366;
+    color:white;
 }
-
-/* MODAL */
 
 .modal{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
     display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:999;
     justify-content:center;
     align-items:center;
-    padding:15px;
+    padding:20px;
 }
 
 .modal.active{
@@ -144,30 +138,32 @@ button{
 }
 
 .modal-content{
+    background:white;
     width:100%;
     max-width:500px;
-    background:#fff;
+    max-height:90vh;
+    overflow-y:auto;
     border-radius:20px;
     padding:20px;
-    max-height:90vh;
-    overflow:hidden;
 }
 
-#previewContent{
-    overflow-y:auto;
-    max-height:60vh;
-    margin-top:15px;
+.modal-content h2{
+    margin-bottom:20px;
 }
 
 .preview-box{
-    background:#f7f7f7;
+    background:#f5f5f5;
     padding:15px;
-    border-radius:14px;
-    line-height:1.7;
-    white-space:pre-wrap;
+    border-radius:12px;
+    line-height:1.8;
+    white-space:pre-line;
 }
 
-/* MOBILE */
+.modal-buttons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
 
 @media(max-width:600px){
 
@@ -176,19 +172,24 @@ button{
     }
 
     .container{
-        padding:16px;
+        padding:18px;
     }
 
     .header h1{
-        font-size:24px;
+        font-size:26px;
     }
 
-    .date-group{
-        grid-template-columns:1fr;
+    .row{
+        flex-direction:column;
+        gap:0;
     }
 
     .button-group{
         flex-direction:column;
+    }
+
+    .modal-content{
+        max-height:85vh;
     }
 
 }
