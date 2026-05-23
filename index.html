@@ -16,7 +16,7 @@
 
     <div class="header">
 
-        <img src="logo.png" class="logo">
+        <img src="logo.png" alt="Logo" class="logo">
 
         <h1>SnDflowerboxponorogo</h1>
 
@@ -28,9 +28,7 @@
 
         <div class="form-group">
 
-            <label class="required">
-                Nama Pemesan
-            </label>
+            <label class="required">Nama Pemesan</label>
 
             <input
                 type="text"
@@ -42,9 +40,7 @@
 
         <div class="form-group">
 
-            <label>
-                Instagram
-            </label>
+            <label>Instagram</label>
 
             <input
                 type="text"
@@ -81,30 +77,30 @@
 
             <div class="radio-group">
 
-                <div class="radio-item">
+                <label class="radio-item">
                     <input type="radio" name="jenis" value="Akrilik Bulat Putih">
                     <span>Akrilik Bulat Putih</span>
-                </div>
+                </label>
 
-                <div class="radio-item">
+                <label class="radio-item">
                     <input type="radio" name="jenis" value="Akrilik Bulat Hitam">
                     <span>Akrilik Bulat Hitam</span>
-                </div>
+                </label>
 
-                <div class="radio-item">
+                <label class="radio-item">
                     <input type="radio" name="jenis" value="Akrilik Kubah Putih">
                     <span>Akrilik Kubah Putih</span>
-                </div>
+                </label>
 
-                <div class="radio-item">
+                <label class="radio-item">
                     <input type="radio" name="jenis" value="Akrilik Kubah Hitam">
                     <span>Akrilik Kubah Hitam</span>
-                </div>
+                </label>
 
-                <div class="radio-item">
+                <label class="radio-item">
                     <input type="radio" name="jenis" value="Akrilik Ring Besi">
                     <span>Akrilik Ring Besi</span>
-                </div>
+                </label>
 
             </div>
 
@@ -126,21 +122,19 @@
 
         <div class="form-group">
 
-            <label>
-                Selendang
-            </label>
+            <label>Selendang</label>
 
             <div class="checkbox-group">
 
-                <div class="checkbox-item">
+                <label class="checkbox-item">
                     <input type="radio" name="selendang" value="Pakai">
                     <span>Pakai</span>
-                </div>
+                </label>
 
-                <div class="checkbox-item">
+                <label class="checkbox-item">
                     <input type="radio" name="selendang" value="Tidak">
                     <span>Tidak</span>
-                </div>
+                </label>
 
             </div>
 
@@ -154,25 +148,35 @@
 
             <div class="color-options">
 
-                <div class="color-option">
+                <label class="color-option">
                     <input type="checkbox" value="Merah">
                     <span>Merah</span>
-                </div>
+                </label>
 
-                <div class="color-option">
+                <label class="color-option">
                     <input type="checkbox" value="Pink">
                     <span>Pink</span>
-                </div>
+                </label>
 
-                <div class="color-option">
+                <label class="color-option">
                     <input type="checkbox" value="Biru">
                     <span>Biru</span>
-                </div>
+                </label>
 
-                <div class="color-option">
+                <label class="color-option">
                     <input type="checkbox" value="Ungu">
                     <span>Ungu</span>
-                </div>
+                </label>
+
+                <label class="color-option">
+                    <input type="checkbox" value="Putih">
+                    <span>Putih</span>
+                </label>
+
+                <label class="color-option">
+                    <input type="checkbox" value="Peach">
+                    <span>Peach</span>
+                </label>
 
             </div>
 
@@ -253,6 +257,7 @@
         <div class="button-group">
 
             <button
+                type="button"
                 class="btn-preview"
                 onclick="closeModal()"
             >
@@ -260,6 +265,7 @@
             </button>
 
             <button
+                type="button"
                 class="btn-submit"
                 onclick="sendNow()"
             >
