@@ -2,12 +2,14 @@
 <html lang="id">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SnDflowerboxponorogo</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -18,7 +20,7 @@
 
     <div class="header">
 
-        <img src="logo.png" alt="Logo" class="logo">
+        <img src="logo.png" class="logo">
 
         <h1>SnDflowerboxponorogo</h1>
 
@@ -83,7 +85,7 @@
 
         </div>
 
-        <!-- JENIS PAPAN -->
+        <!-- JENIS -->
 
         <div class="form-group">
 
@@ -93,36 +95,21 @@
 
             <div class="radio-group">
 
-                <label class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Bulat Putih">
-                    <span>Akrilik Bulat Putih</span>
-                </label>
+                <label><input type="radio" name="jenis" value="Akrilik Bulat Putih"> Akrilik Bulat Putih</label>
 
-                <label class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Bulat Hitam">
-                    <span>Akrilik Bulat Hitam</span>
-                </label>
+                <label><input type="radio" name="jenis" value="Akrilik Bulat Hitam"> Akrilik Bulat Hitam</label>
 
-                <label class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Kubah Putih">
-                    <span>Akrilik Kubah Putih</span>
-                </label>
+                <label><input type="radio" name="jenis" value="Akrilik Kubah Putih"> Akrilik Kubah Putih</label>
 
-                <label class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Kubah Hitam">
-                    <span>Akrilik Kubah Hitam</span>
-                </label>
+                <label><input type="radio" name="jenis" value="Akrilik Kubah Hitam"> Akrilik Kubah Hitam</label>
 
-                <label class="radio-item">
-                    <input type="radio" name="jenis" value="Akrilik Ring Besi">
-                    <span>Akrilik Ring Besi</span>
-                </label>
+                <label><input type="radio" name="jenis" value="Akrilik Ring Besi"> Akrilik Ring Besi</label>
 
             </div>
 
         </div>
 
-        <!-- WARNA TULISAN -->
+        <!-- WARNA -->
 
         <div class="form-group">
 
@@ -146,16 +133,16 @@
                 Selendang
             </label>
 
-            <div class="checkbox-group">
+            <div class="radio-inline">
 
-                <label class="checkbox-item">
+                <label>
                     <input type="radio" name="selendang" value="Pakai">
-                    <span>Pakai</span>
+                    Pakai
                 </label>
 
-                <label class="checkbox-item">
+                <label>
                     <input type="radio" name="selendang" value="Tidak">
-                    <span>Tidak</span>
+                    Tidak
                 </label>
 
             </div>
@@ -170,57 +157,27 @@
                 Pilih beberapa opsi warna bunga
             </label>
 
-            <div class="color-options">
+            <div class="checkbox-grid">
 
-                <label class="color-option">
-                    <input type="checkbox" value="Merah">
-                    <span>Merah</span>
-                </label>
+                <label><input type="checkbox" value="Merah"> Merah</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Pink">
-                    <span>Pink</span>
-                </label>
+                <label><input type="checkbox" value="Pink"> Pink</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Biru">
-                    <span>Biru</span>
-                </label>
+                <label><input type="checkbox" value="Biru"> Biru</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Ungu">
-                    <span>Ungu</span>
-                </label>
+                <label><input type="checkbox" value="Ungu"> Ungu</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Putih">
-                    <span>Putih</span>
-                </label>
+                <label><input type="checkbox" value="Putih"> Putih</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Peach">
-                    <span>Peach</span>
-                </label>
+                <label><input type="checkbox" value="Peach"> Peach</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Kuning">
-                    <span>Kuning</span>
-                </label>
+                <label><input type="checkbox" value="Kuning"> Kuning</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Hijau">
-                    <span>Hijau</span>
-                </label>
+                <label><input type="checkbox" value="Hijau"> Hijau</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Coklat">
-                    <span>Coklat</span>
-                </label>
+                <label><input type="checkbox" value="Coklat"> Coklat</label>
 
-                <label class="color-option">
-                    <input type="checkbox" value="Mix">
-                    <span>Mix</span>
-                </label>
+                <label><input type="checkbox" value="Mix"> Mix</label>
 
             </div>
 
@@ -234,11 +191,27 @@
                 Pilih tanggal dan waktu Pengantaran
             </label>
 
-            <div class="date-time-group">
+            <div class="date-group">
 
-                <input type="date" id="tanggal">
+                <div>
 
-                <input type="time" id="waktu">
+                    <label class="small-label">
+                        Pilih tanggal
+                    </label>
+
+                    <input type="date" id="tanggal">
+
+                </div>
+
+                <div>
+
+                    <label class="small-label">
+                        Pilih waktu
+                    </label>
+
+                    <input type="time" id="waktu">
+
+                </div>
 
             </div>
 
@@ -279,7 +252,7 @@
             <input
                 type="text"
                 id="emoji"
-                placeholder="🎉 💐 🌸"
+                value="🎉 💐 🌸"
             >
 
         </div>
@@ -342,10 +315,6 @@
 
     </div>
 
-</div>
-
-<div class="success-alert" id="successAlert">
-    Membuka WhatsApp...
 </div>
 
 <script src="script.js"></script>
