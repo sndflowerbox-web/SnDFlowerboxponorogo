@@ -4,26 +4,34 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    font-family:Arial,sans-serif;
-    background:#f3f3f3;
+    font-family:'Segoe UI',sans-serif;
+    background:#f4f4f4;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     padding:20px;
+    color:#222;
 }
 
 .container{
     width:100%;
-    max-width:550px;
+    max-width:620px;
     background:#fff;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    border-radius:28px;
+    padding:28px;
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
 }
+
+/* HEADER */
 
 .header{
     text-align:center;
-    margin-bottom:25px;
+    margin-bottom:30px;
 }
 
 .logo{
@@ -31,26 +39,32 @@ body{
     height:120px;
     object-fit:cover;
     border-radius:50%;
-    margin-bottom:15px;
+    margin-bottom:18px;
+    border:4px solid #f1f1f1;
 }
 
 .header h1{
-    font-size:32px;
-    margin-bottom:10px;
+    font-size:34px;
+    font-weight:700;
+    margin-bottom:8px;
 }
 
 .header p{
-    color:#666;
+    color:#777;
+    font-size:15px;
 }
 
+/* FORM */
+
 .form-group{
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
 label{
     display:block;
-    margin-bottom:8px;
-    font-weight:bold;
+    margin-bottom:10px;
+    font-weight:600;
+    font-size:16px;
 }
 
 .required::after{
@@ -61,76 +75,131 @@ label{
 input,
 textarea{
     width:100%;
-    padding:14px;
     border:1px solid #ddd;
-    border-radius:14px;
+    border-radius:16px;
+    padding:15px 18px;
     font-size:16px;
+    background:#fafafa;
+    transition:0.3s;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#25d366;
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(37,211,102,0.15);
 }
 
 textarea{
-    min-height:120px;
+    min-height:130px;
     resize:none;
 }
 
-.radio-group,
-.checkbox-grid{
+/* UCAPAN CONTOH */
+
+.ucapan-box{
+    background:#f7f7f7;
+    border-left:5px solid #25d366;
+    border-radius:14px;
+    padding:18px;
+    line-height:1.7;
+    margin-bottom:15px;
+}
+
+/* RADIO */
+
+.radio-group{
     display:flex;
-    flex-wrap:wrap;
-    gap:12px;
+    flex-direction:column;
+    gap:14px;
     margin-top:10px;
 }
 
-.radio-group label,
+.radio-group label{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:500;
+    margin:0;
+}
+
+/* CHECKBOX WARNA */
+
+.checkbox-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-top:12px;
+}
+
 .checkbox-grid label{
     display:flex;
     align-items:center;
-    gap:5px;
-    font-weight:normal;
+    gap:8px;
+    font-weight:500;
+    margin:0;
 }
+
+/* TANGGAL */
 
 .row{
     display:flex;
-    gap:15px;
+    gap:16px;
 }
 
 .row .form-group{
     flex:1;
 }
 
+/* BUTTON */
+
 .button-group{
     display:flex;
-    gap:15px;
-    margin-top:25px;
+    gap:16px;
+    margin-top:30px;
 }
 
 button{
     flex:1;
-    padding:15px;
     border:none;
-    border-radius:14px;
+    border-radius:18px;
+    padding:16px;
     font-size:18px;
-    font-weight:bold;
+    font-weight:700;
     cursor:pointer;
+    transition:0.3s;
 }
 
 .preview-btn{
-    background:#e5e5e5;
+    background:#e8e8e8;
+    color:#222;
+}
+
+.preview-btn:hover{
+    background:#dcdcdc;
 }
 
 .whatsapp-btn{
     background:#25d366;
-    color:white;
+    color:#fff;
 }
 
+.whatsapp-btn:hover{
+    background:#1ebe5d;
+}
+
+/* MODAL */
+
 .modal{
-    display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.6);
-    z-index:999;
+    background:rgba(0,0,0,0.65);
+    display:none;
     justify-content:center;
     align-items:center;
     padding:20px;
+    z-index:999;
 }
 
 .modal.active{
@@ -138,45 +207,64 @@ button{
 }
 
 .modal-content{
-    background:white;
+    background:#fff;
     width:100%;
-    max-width:500px;
+    max-width:520px;
     max-height:90vh;
     overflow-y:auto;
-    border-radius:20px;
-    padding:20px;
+    border-radius:24px;
+    padding:24px;
 }
 
 .modal-content h2{
     margin-bottom:20px;
+    font-size:28px;
 }
 
 .preview-box{
-    background:#f5f5f5;
-    padding:15px;
-    border-radius:12px;
-    line-height:1.8;
+    background:#f8f8f8;
+    border-radius:18px;
+    padding:18px;
+    line-height:1.9;
     white-space:pre-line;
+    font-size:15px;
 }
 
 .modal-buttons{
     display:flex;
-    gap:15px;
-    margin-top:20px;
+    gap:14px;
+    margin-top:22px;
 }
 
-@media(max-width:600px){
+.close-btn{
+    background:#ececec;
+}
+
+.send-btn{
+    background:#25d366;
+    color:#fff;
+}
+
+/* RESPONSIVE HP */
+
+@media(max-width:768px){
 
     body{
-        padding:10px;
+        padding:12px;
     }
 
     .container{
-        padding:18px;
+        padding:22px;
+        border-radius:22px;
     }
 
     .header h1{
-        font-size:26px;
+        font-size:28px;
+    }
+
+    .logo{
+        width:100px;
+        height:100px;
     }
 
     .row{
@@ -184,12 +272,38 @@ button{
         gap:0;
     }
 
+    .checkbox-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
     .button-group{
         flex-direction:column;
     }
 
+    button{
+        width:100%;
+    }
+
     .modal-content{
-        max-height:85vh;
+        padding:20px;
+        border-radius:20px;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .checkbox-grid{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:24px;
+    }
+
+    input,
+    textarea{
+        font-size:15px;
     }
 
 }
