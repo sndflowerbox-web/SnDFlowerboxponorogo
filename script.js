@@ -1,18 +1,16 @@
-/* =========================
-   SnD Flowerbox Script
-========================= */
+/* NOMOR ADMIN */
 
 const ADMIN = "6285135666976";
 
-/* =========================
-   HELPER
-========================= */
+/* AMBIL DATA */
 
 function getValue(id){
 
-    return document.getElementById(id).value.trim();
+    return document.getElementById(id).value;
 
 }
+
+/* RADIO */
 
 function getRadio(name){
 
@@ -22,77 +20,30 @@ function getRadio(name){
 
 }
 
+/* CHECKBOX */
+
 function getColors(){
 
     const checked = document.querySelectorAll('.checkbox-grid input:checked');
 
-    let values = [];
+    let result = [];
 
     checked.forEach(item => {
 
-        values.push(item.value);
+        result.push(item.value);
 
     });
 
-    return values.length ? values.join(", ") : "-";
+    return result.join(", ");
 
 }
 
-/* =========================
-   VALIDASI
-========================= */
-
-function validateForm(){
-
-    const requiredFields = [
-
-        "nama",
-        "ucapan",
-        "warna",
-        "alamat",
-        "whatsapp"
-
-    ];
-
-    let valid = true;
-
-    requiredFields.forEach(id => {
-
-        const field = document.getElementById(id);
-
-        if(field.value.trim() === ""){
-
-            field.style.border = "2px solid red";
-
-            valid = false;
-
-        }else{
-
-            field.style.border = "1px solid #ddd";
-
-        }
-
-    });
-
-    if(!document.querySelector('input[name="jenis"]:checked')){
-
-        alert("Pilih jenis papan bunga");
-
-        valid = false;
-
-    }
-
-    return valid;
-
-}
-
-/* =========================
-   FORMAT PESAN
-========================= */
+/* BUAT PESAN */
 
 function buildMessage(){
 
-    return `Halo Admin SnDflowerboxponorogo
+    return `
+Halo Admin SnDflowerboxponorogo
 
 Nama : ${getValue('nama')}
 
@@ -130,13 +81,10 @@ ${getValue('emoji')}
 `;
 
 }
-/* =========================
-   PREVIEW
-========================= */
+
+/* PREVIEW */
 
 function previewPesanan(){
-
-    if(!validateForm()) return;
 
     const message = buildMessage();
 
@@ -154,9 +102,7 @@ function previewPesanan(){
 
 }
 
-/* =========================
-   TUTUP MODAL
-========================= */
+/* CLOSE */
 
 function closeModal(){
 
@@ -164,68 +110,30 @@ function closeModal(){
 
 }
 
-/* =========================
-   KIRIM WHATSAPP
-========================= */
+/* KIRIM WA */
 
-function sendWhatsApp(){
-
-    if(!validateForm()) return;
+function kirimWA(){
 
     const text = encodeURIComponent(buildMessage());
 
-    const url = `https://wa.me/${ADMIN}?text=${text}`;
+    const url = "https://wa.me/" + ADMIN + "?text=" + text;
 
-    window.open(url, "_blank");
+    window.location.href = url;
 
 }
 
-/* =========================
-   KIRIM DARI MODAL
-========================= */
+/* BUTTON UTAMA */
+
+function sendWhatsApp(){
+
+    kirimWA();
+
+}
+
+/* BUTTON MODAL */
 
 function sendNow(){
 
-    sendWhatsApp();
+    kirimWA();
 
 }
-
-/* =========================
-   TUTUP MODAL SAAT KLIK LUAR
-========================= */
-
-window.onclick = function(event){
-
-    const modal = document.getElementById('modal');
-
-    if(event.target === modal){
-
-        closeModal();
-
-    }
-
-};
-
-/* =========================
-   AUTO HAPUS BORDER MERAH
-========================= */
-
-document.addEventListener("input", function(e){
-
-    if(
-
-        e.target.tagName === "INPUT" ||
-
-        e.target.tagName === "TEXTAREA"
-
-    ){
-
-        if(e.target.value.trim() !== ""){
-
-            e.target.style.border = "1px solid #ddd";
-
-        }
-
-    }
-
-});
