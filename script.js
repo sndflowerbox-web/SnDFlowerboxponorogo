@@ -97,6 +97,19 @@ function validateForm(){
     return valid;
 
 }
+/* =========================
+   FORMAT TANGGAL
+========================= */
+
+function formatTanggal(tanggal){
+
+    if(!tanggal) return "-";
+
+    const parts = tanggal.split("-");
+
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+
+}
 
 /* =========================
    FORMAT PESAN
