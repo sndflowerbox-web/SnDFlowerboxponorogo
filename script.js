@@ -47,6 +47,8 @@ function getColors(){
     return values.length ? values.join(", ") : "-";
 
 }
+const selendang =
+document.querySelector('input[name="selendang"]:checked')?.value || "-";
 
 /* =========================
    VALIDASI
