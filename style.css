@@ -283,8 +283,8 @@ textarea{
 
 .radio-inline{
     display:flex;
-    gap:14px;
     flex-wrap:wrap;
+    gap:14px;
     margin-top:8px;
 }
 
@@ -293,6 +293,15 @@ textarea{
     min-width:140px;
     justify-content:center;
 }
+/* PERBAIKAN RADIO */
+
+.radio-item input[type="radio"]{
+    width:18px !important;
+    height:18px !important;
+    margin:0;
+    flex-shrink:0;
+}
+
 
 /* MOBILE */
 @media(max-width:480px){
@@ -304,7 +313,6 @@ textarea{
     .radio-inline .radio-item{
         width:100%;
     }
-
 }
 .inline-group{
     display:flex;
