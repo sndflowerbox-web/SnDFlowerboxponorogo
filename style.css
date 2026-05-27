@@ -277,7 +277,35 @@ textarea{
 /* =========================
    INLINE
 ========================= */
+/* =========================
+   RADIO INLINE
+========================= */
 
+.radio-inline{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:8px;
+}
+
+.radio-inline .radio-item{
+    flex:1;
+    min-width:140px;
+    justify-content:center;
+}
+
+/* MOBILE */
+@media(max-width:480px){
+
+    .radio-inline{
+        flex-direction:column;
+    }
+
+    .radio-inline .radio-item{
+        width:100%;
+    }
+
+}
 .inline-group{
     display:flex;
     gap:18px;
