@@ -17,6 +17,25 @@ function getValue(id){
 }
 
 /* =========================
+   FORMAT TANGGAL
+========================= */
+
+function formatTanggal(tanggal){
+
+    if(!tanggal) return "-";
+
+    const bulan = [
+        "Januari","Februari","Maret","April","Mei","Juni",
+        "Juli","Agustus","September","Oktober","November","Desember"
+    ];
+
+    const parts = tanggal.split("-");
+
+    return `${parts[2]} ${bulan[parseInt(parts[1]) - 1]} ${parts[0]}`;
+
+}
+
+/* =========================
    RADIO
 ========================= */
 
@@ -47,8 +66,6 @@ function getColors(){
     return values.length ? values.join(", ") : "-";
 
 }
-const selendang =
-document.querySelector('input[name="selendang"]:checked')?.value || "-";
 
 /* =========================
    VALIDASI
@@ -97,19 +114,6 @@ function validateForm(){
     return valid;
 
 }
-/* =========================
-   FORMAT TANGGAL
-========================= */
-
-function formatTanggal(tanggal){
-
-    if(!tanggal) return "-";
-
-    const parts = tanggal.split("-");
-
-    return `${parts[2]}-${parts[1]}-${parts[0]}`;
-
-}
 
 /* =========================
    FORMAT PESAN
@@ -139,7 +143,7 @@ Warna Bunga :
 ${getColors()}
 
 Tanggal :
-${getValue('tanggal')}
+${formatTanggal(getValue('tanggal'))}
 
 Waktu :
 ${getValue('waktu')}
