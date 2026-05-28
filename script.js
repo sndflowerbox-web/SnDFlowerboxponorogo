@@ -167,7 +167,7 @@ WhatsApp :
 *${getValue('whatsapp')}*
 
 Emoji :
-*${getValue('emoji')}*
+${getValue('emoji')}
 `;
 
 }
