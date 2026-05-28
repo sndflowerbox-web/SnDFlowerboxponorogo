@@ -133,34 +133,45 @@ function buildMessage(){
 
     return `Halo Admin SnDflowerboxponorogo
 
-*Nama :* *${getValue('nama')}*
+Nama : 
+*${getValue('nama')}*
 
-*Instagram :* *${igLink}*
+Instagram : 
+*${igLink}*
 
-*Ucapan :*
+Ucapan :
 *${getValue('ucapan')}*
 
-*Jenis :* *${getRadio('jenis')}*
+Jenis :
+*${getRadio('jenis')}*
 
-*Warna Tulisan :* *${getValue('warna')}*
+Warna Tulisan :
+*${getValue('warna')}*
 
-*Selendang :* *${getRadio('selendang')}*
+Selendang :
+*${getRadio('selendang')}*
 
-*Warna Bunga :* *${getColors()}*
+Warna Bunga :
+*${getColors()}*
 
-*Tanggal :* *${formatTanggal(getValue('tanggal'))}*
+Tanggal :
+*${formatTanggal(getValue('tanggal'))}*
 
-*Waktu :* *${getValue('waktu')}*
+Waktu :
+*${getValue('waktu')}*
 
-*Alamat :*
+Alamat :
 *${getValue('alamat')}*
 
-*WhatsApp :* *${getValue('whatsapp')}*
+WhatsApp :
+*${getValue('whatsapp')}*
 
-*Emoji :* *${getValue('emoji')}*
+Emoji :
+*${getValue('emoji')}*
 `;
 
 }
+
 /* =========================
    PREVIEW
 ========================= */
