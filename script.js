@@ -121,11 +121,21 @@ function validateForm(){
 
 function buildMessage(){
 
+    let ig = getValue('instagram');
+
+    // hapus @ jika user mengetik @username
+    ig = ig.replace("@","");
+
+    // buat link instagram
+    const igLink = ig 
+        ? `https://instagram.com/${ig}` 
+        : "-";
+
     return `Halo Admin SnDflowerboxponorogo
 
 Nama : ${getValue('nama')}
 
-Instagram : ${getValue('instagram')}
+Instagram : ${igLink}
 
 Ucapan :
 ${getValue('ucapan')}
