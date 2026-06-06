@@ -140,7 +140,7 @@ Instagram :
 *${igLink}*
 
 Ucapan :
-*${getValue('ucapan')}*
+${getValue('ucapan')}
 
 Jenis :
 *${getRadio('jenis')}*
